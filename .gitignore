@@ -1,0 +1,23 @@
+#env
+.env
+
+#data
+backend/data/raw/
+backend/db/
+
+#python cache
+__pycache__/
+*.pyc
+*.pyo
+
+#virtual environment
+venv/
+.venv/
+
+#os
+.DS_Store
+Thumbs.db
+
+# Next.js
+frontend/.next/
+frontend/node_modules/
