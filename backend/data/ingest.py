@@ -34,7 +34,8 @@ def save_clean(df: pd.DataFrame, output_path: str) -> None:
 def build_documents(df: pd.DataFrame) -> list[dict]:
     documents = []
 
-    for _, row in df.iterrows():
+    for index, row in df.iterrows():
+
         text = f"""Title: {row['title_english']}
 Type: {row['type']} | Episodes: {int(float(row['episodes'])) if row['episodes'] != 'Unknown' else 'Unknown'} | Status: {row['status']}
 Score: {row['score']} | Rank: {int(float(row['rank'])) if row['rank'] != 'Unknown' else 'Unknown'} | Popularity: {row['popularity']}
@@ -46,7 +47,7 @@ Studios: {row['studios']} | Source: {row['source']}
 Synopsis: {row['synopsis']}"""
 
         documents.append({
-            "id": str(row['mal_id']),
+            "id": str(index),
             "text": text
         })
 
