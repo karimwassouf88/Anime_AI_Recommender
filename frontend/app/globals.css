@@ -1,26 +1,65 @@
-@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700&family=JetBrains+Mono:wght@300;400;500&display=swap");
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #0a0a0a;
+  --foreground: #e8e0d5;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg-primary, #0a0a0a) !important;
+  font-family: var(--font-mono, monospace) !important;
+}
+
+:root {
+  --bg-primary: #0e0e0e;
+  --bg-secondary: #1b1a1a;
+  --bg-elevated: #1a1a1a;
+  --bg-input: #141414;
+
+  --accent-red: #28d7c3;
+  --accent-red-dim: #1ba999;
+  --accent-red-glow: #28d7c325;
+
+  --text-primary: #e4f3ed;
+  --text-secondary: #a3c6b9;
+  --text-dim: #4a4540;
+
+  --border: #222222;
+  --border-accent: #2a2a2a;
+
+  --font-display: "Noto Serif JP", serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  overflow: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-red-dim);
+  border-radius: 2px;
+}
+
+::selection {
+  background: var(--accent-red-glow);
+  color: var(--text-primary);
 }
