@@ -135,22 +135,12 @@ export default function ChatWindow() {
             <div
               style={{
                 fontFamily: "var(--font-display)",
-                fontSize: "48px",
+                fontSize: "24px",
                 color: "var(--accent-red)",
               }}
             >
-              神
+              気分、ジャンル、好きなアニメ — なんでも教えて
             </div>
-            <p
-              style={{
-                fontSize: "11px",
-                letterSpacing: "0.2em",
-                textTransform: "uppercase",
-                color: "var(--text-secondary)",
-              }}
-            >
-              tell me what kind of masterpeice are u looking for
-            </p>
           </div>
         )}
 
@@ -172,7 +162,7 @@ export default function ChatWindow() {
                 color: "var(--text-dim)",
               }}
             >
-              {msg.role === "user" ? "you" : "oracle"}
+              {msg.role === "user" ? "you" : "Miyabi"}
             </span>
             <div
               style={{
@@ -263,7 +253,7 @@ export default function ChatWindow() {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKeyDown}
-          placeholder="Describe what you want to watch or feel while watching ..."
+          placeholder=" A mood, a genre, an anime you loved — tell me anything..."
           rows={1}
           style={{
             flex: 1,
