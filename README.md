@@ -2,8 +2,6 @@
 
 > An AI that finds your next anime — based on how you feel, not just what you search.
 
-[**Try it →**](your-deployed-link-here)
-
 ---
 
 Miyabi is a conversational anime recommender. You describe a mood, a vibe, an anime you loved — and it finds what you should watch next.
