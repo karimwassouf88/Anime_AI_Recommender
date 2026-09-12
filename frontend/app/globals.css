@@ -1,31 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700&family=JetBrains+Mono:wght@300;400;500&display=swap");
 
 :root {
-  --background: #0a0a0a;
-  --foreground: #e8e0d5;
-}
+  --background: #0e0e0e;
+  --foreground: #e4f3ed;
 
-body {
-  background: var(--bg-primary, #0a0a0a) !important;
-  font-family: var(--font-mono, monospace) !important;
-}
-
-:root {
   --bg-primary: #0e0e0e;
   --bg-secondary: #1b1a1a;
   --bg-elevated: #1a1a1a;
   --bg-input: #141414;
 
-  --accent-red: #28d7c3;
-  --accent-red-dim: #1ba999;
-  --accent-red-glow: #28d7c325;
+  --accent: #ff5d8f;
+  --accent-dim: #c4456d;
+  --accent-glow: rgba(255, 93, 143, 0.15);
 
-  --text-primary: #e4f3ed;
-  --text-secondary: #a3c6b9;
+  --text-primary: #f0ece8;
+  --text-secondary: #9a8f88;
   --text-dim: #4a4540;
 
-  --border: #222222;
-  --border-accent: #2a2a2a;
+  --border: #2a2a2a;
+  --border-accent: #333333;
 
   --font-display: "Noto Serif JP", serif;
   --font-mono: "JetBrains Mono", monospace;
@@ -40,7 +33,7 @@ body {
 html,
 body {
   height: 100%;
-  background-color: var(--bg-primary);
+  background-color: var(--bg-primary) !important;
   color: var(--text-primary);
   font-family: var(--font-mono);
   overflow: hidden;
@@ -55,11 +48,11 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--accent-red-dim);
+  background: var(--accent-dim);
   border-radius: 2px;
 }
 
 ::selection {
-  background: var(--accent-red-glow);
+  background: var(--accent-glow);
   color: var(--text-primary);
 }

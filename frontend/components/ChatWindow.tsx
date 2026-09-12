@@ -66,7 +66,7 @@ export default function ChatWindow() {
         display: "flex",
         flexDirection: "column",
         height: "100vh",
-        maxWidth: "800px",
+        maxWidth: "1000px",
         margin: "0 auto",
         borderLeft: "1px solid var(--border)",
         borderRight: "1px solid var(--border)",
@@ -87,7 +87,7 @@ export default function ChatWindow() {
           <h1
             style={{
               fontFamily: "var(--font-display)",
-              fontSize: "18px",
+              fontSize: "20px",
               fontWeight: "700",
               letterSpacing: "0.05em",
               color: "var(--text-primary)",
@@ -97,8 +97,8 @@ export default function ChatWindow() {
           </h1>
           <p
             style={{
-              fontSize: "14px",
-              color: "var(--accent-red)",
+              fontSize: "20px",
+              color: "var(--accent)",
               letterSpacing: "0.15em",
               textTransform: "uppercase",
               marginTop: "2px",
@@ -136,7 +136,8 @@ export default function ChatWindow() {
               style={{
                 fontFamily: "var(--font-display)",
                 fontSize: "24px",
-                color: "var(--accent-red)",
+                color: "var(--accent)",
+                textAlign: "center",
               }}
             >
               気分、ジャンル、好きなアニメ — なんでも教えて
@@ -156,10 +157,10 @@ export default function ChatWindow() {
           >
             <span
               style={{
-                fontSize: "9px",
+                fontSize: "12px",
                 letterSpacing: "0.2em",
                 textTransform: "uppercase",
-                color: "var(--text-dim)",
+                color: "var(--text-secondary)",
               }}
             >
               {msg.role === "user" ? "you" : "Miyabi"}
@@ -174,11 +175,11 @@ export default function ChatWindow() {
                     : "12px 12px 12px 2px",
                 background:
                   msg.role === "user"
-                    ? "var(--accent-red-dim)"
+                    ? "var(--accent-dim)"
                     : "var(--bg-elevated)",
-                border: `1px solid ${msg.role === "user" ? "var(--accent-red)" : "var(--border-accent)"}`,
-                fontSize: "13px",
-                lineHeight: "1.7",
+                border: `1px solid ${msg.role === "user" ? "var(--accent)" : "var(--border-accent)"}`,
+                fontSize: "15px",
+                lineHeight: "1.8",
                 color: "var(--text-primary)",
                 whiteSpace: "pre-wrap",
               }}
@@ -199,10 +200,10 @@ export default function ChatWindow() {
           >
             <span
               style={{
-                fontSize: "9px",
+                fontSize: "12px",
                 letterSpacing: "0.2em",
                 textTransform: "uppercase",
-                color: "var(--text-dim)",
+                color: "var(--text-secondary)",
               }}
             >
               Miyabi
@@ -225,7 +226,7 @@ export default function ChatWindow() {
                     width: "6px",
                     height: "6px",
                     borderRadius: "50%",
-                    background: "var(--accent-red)",
+                    background: "var(--accent)",
                     animation: "pulse 1.2s ease-in-out infinite",
                     animationDelay: `${i * 0.2}s`,
                   }}
@@ -253,7 +254,7 @@ export default function ChatWindow() {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKeyDown}
-          placeholder=" A mood, a genre, an anime you loved — tell me anything..."
+          placeholder="A mood, a genre, an anime you loved — tell me anything..."
           rows={1}
           style={{
             flex: 1,
@@ -263,15 +264,13 @@ export default function ChatWindow() {
             padding: "10px 14px",
             color: "var(--text-primary)",
             fontFamily: "var(--font-mono)",
-            fontSize: "13px",
+            fontSize: "14px",
             resize: "none",
             outline: "none",
             lineHeight: "1.6",
             transition: "border-color 0.2s",
           }}
-          onFocus={(e) =>
-            (e.target.style.borderColor = "var(--accent-red-dim)")
-          }
+          onFocus={(e) => (e.target.style.borderColor = "var(--accent-dim)")}
           onBlur={(e) => (e.target.style.borderColor = "var(--border)")}
         />
         <button
@@ -279,9 +278,7 @@ export default function ChatWindow() {
           disabled={loading || !input.trim()}
           style={{
             background:
-              loading || !input.trim()
-                ? "var(--bg-elevated)"
-                : "var(--accent-red)",
+              loading || !input.trim() ? "var(--bg-elevated)" : "var(--accent)",
             border: "1px solid var(--border-accent)",
             borderRadius: "50px",
             padding: "12px 20px",
