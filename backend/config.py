@@ -7,7 +7,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # --- LLM ---
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-LLM_MODEL = "llama-3.1-8b-instant"
+LLM_MODEL = "openai/gpt-oss-20b"
 
 # --- Embeddings ---
 EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"

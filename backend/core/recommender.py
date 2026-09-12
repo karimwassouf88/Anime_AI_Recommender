@@ -1,3 +1,5 @@
+import sys
+import os
 from langchain_groq import ChatGroq
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_chroma import Chroma
@@ -5,8 +7,6 @@ from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.runnables.history import RunnableWithMessageHistory
 from langchain_core.output_parsers import StrOutputParser
 from langchain_community.chat_message_histories import SQLChatMessageHistory
-import sys
-import os
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from config import (
@@ -31,10 +31,7 @@ def get_retriever():
             persist_directory=CHROMA_PATH
         )
         _retriever = vectorstore.as_retriever(
-            search_kwargs={
-                "k": TOP_K_RESULTS,
-                "filter": {"score": {"$gte": 6.0}}
-            }
+            search_kwargs={"k": TOP_K_RESULTS}
         )
     return _retriever
 
@@ -44,7 +41,6 @@ def get_session_history(session_id: str) -> SQLChatMessageHistory:
         connection=f"sqlite+aiosqlite:///{MEMORY_DB_PATH}",
         async_mode=True
     )
-
 def build_chain():
     llm = ChatGroq(
         api_key=GROQ_API_KEY,
@@ -53,7 +49,7 @@ def build_chain():
     )
 
     prompt = ChatPromptTemplate.from_messages([
-    ("system", """You are an expert anime curator with deep knowledge of anime across all eras, genres, and tones.
+        ("system", """You are an expert anime curator with deep knowledge of anime across all eras, genres, and tones.
 
 Your recommendations must match the EMOTIONAL and ATMOSPHERIC feel of what the user is asking for — not just genre tags.
 
@@ -70,9 +66,9 @@ Guidelines:
 
 Relevant anime from the database:
 {context}"""),
-    MessagesPlaceholder(variable_name="history"),
-    ("human", "{question}")
-])
+        MessagesPlaceholder(variable_name="history"),
+        ("human", "{question}")
+    ])
 
     chain = prompt | llm | StrOutputParser()
 
@@ -84,7 +80,6 @@ Relevant anime from the database:
     )
 
     return chain_with_memory
-
 
 async def get_recommendation(message: str, session_id: str) -> str:
     retriever = get_retriever()
